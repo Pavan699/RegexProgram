@@ -11,6 +11,7 @@ namespace RegexProgram
             Inputs inputs = new Inputs();
             Console.WriteLine(inputs.FirstName());
             Console.WriteLine(inputs.LastName());
+            Console.WriteLine(inputs.Email());
         }
     }
 }
