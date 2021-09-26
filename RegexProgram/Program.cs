@@ -12,6 +12,7 @@ namespace RegexProgram
             Console.WriteLine(inputs.FirstName());
             Console.WriteLine(inputs.LastName());
             Console.WriteLine(inputs.Email());
+            Console.WriteLine(inputs.PhoneNo());
         }
     }
 }

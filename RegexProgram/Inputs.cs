@@ -31,5 +31,13 @@ namespace RegexProgram
             Regex emailid = new Regex(emailpattern);
             return emailid.Match(email);
         }
+        public dynamic PhoneNo()
+        {
+            Console.Write("Enter the Phone No. : ");
+            string PhoneNo = Console.ReadLine();
+            string numpattern = @"^[+]{0,1}[0-9]{2}" + " " + "[6-9]{1}[0-9]{9}$";
+            Regex reg = new Regex(numpattern);
+            return reg.Match(PhoneNo);
+        }
     }
 }
