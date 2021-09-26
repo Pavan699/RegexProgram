@@ -45,7 +45,25 @@ namespace RegexProgram
             string password = Console.ReadLine();
             string passpattern = @"^[0-9a-zA-Z]{8,}$";
             Regex reg = new Regex(passpattern);
+            if (password.Length >= 8 && upperCase(password) >= 1)
+            {
+                Console.Write("Valid Password : ");
+                return reg.Match(password);
+            }
+            Console.WriteLine("Invalid Password");
             return reg.Match(password);
+        }
+        private int upperCase(string pass)
+        {
+            int num = 0;
+            foreach (char ch in pass)
+            {
+                if (char.IsUpper(ch))
+                {
+                    num++;
+                }
+            }
+            return num;
         }
     }
 }
