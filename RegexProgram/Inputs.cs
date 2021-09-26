@@ -5,8 +5,15 @@ using System.Text.RegularExpressions;
 
 namespace RegexProgram
 {
+    /// <summary>
+    /// Inputs class to declaer methods
+    /// </summary>
     class Inputs
     {
+        /// <summary>
+        /// FirstName() method to check the name is valid or not
+        /// </summary>
+        /// <returns>if valid returns the name else returns blank</returns>
         public dynamic FirstName()
         {
             Console.Write("Enter the Frist-Name : ");
@@ -15,6 +22,10 @@ namespace RegexProgram
             Regex fname = new Regex(namepattern);
             return fname.Match(firstName);
         }
+        /// <summary>
+        /// LastName() method to check the name is valid or not
+        /// </summary>
+        /// <returns>if valid returns the name else returns blank</returns>
         public dynamic LastName()
         {
             Console.Write("Enter the Last-Name : ");
@@ -23,6 +34,10 @@ namespace RegexProgram
             Regex lname = new Regex(namepattern);
             return lname.Match(lastName);
         }
+        /// <summary>
+        /// Email() method to check all types of email is valid or not
+        /// </summary>
+        /// <returns>if valid returns the email else returns blank</returns>
         public dynamic Email()
         {
             Console.Write("Enter the Email : ");
@@ -31,6 +46,10 @@ namespace RegexProgram
             Regex emailid = new Regex(emailpattern);
             return emailid.Match(email);
         }
+        /// <summary>
+        /// PhoneNo() method to check phone no. with country code
+        /// </summary>
+        /// <returns>'+' is optional but code,' '(Sapce) and number(10digit) then it will return or else none</returns>
         public dynamic PhoneNo()
         {
             Console.Write("Enter the Phone No. : ");
@@ -39,6 +58,10 @@ namespace RegexProgram
             Regex reg = new Regex(numpattern);
             return reg.Match(PhoneNo);
         }
+        /// <summary>
+        /// Password() method to check password with at least one Upper-character,one number and one Special symbol
+        /// </summary>
+        /// <returns>if all cases should match then it will return</returns>
         public dynamic Password()
         {
             Console.Write("Enter the Password : ");
@@ -53,6 +76,11 @@ namespace RegexProgram
             Console.WriteLine("Invalid Password");
             return reg.Match(password);
         }
+        /// <summary>
+        /// upperCase() method to check the Upper-Case-character
+        /// </summary>
+        /// <param name="pass">Password as input</param>
+        /// <returns>if upper-case is present returns 1 or more, else 0</returns>
         private int upperCase(string pass)
         {
             int num = 0;
@@ -65,6 +93,11 @@ namespace RegexProgram
             }
             return num;
         }
+        /// <summary>
+        /// numCase() method to check the Number-character
+        /// </summary>
+        /// <param name="pass">Password as input</param>
+        /// <returns>if Number is present returns 1 or more, else 0</returns>
         private int numCase(string pass)
         {
             int num = 0;
@@ -77,6 +110,11 @@ namespace RegexProgram
             }
             return num;
         }
+        /// <summary>
+        /// SpecialCase() method to check the special-character
+        /// </summary>
+        /// <param name="pass">Password as input</param>
+        /// <returns>if special-character is present returns 1 or more, else 0</returns>
         private int SpecialCase(string pass)
         {
             int num = 0;
