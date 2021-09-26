@@ -13,6 +13,7 @@ namespace RegexProgram
             Console.WriteLine(inputs.LastName());
             Console.WriteLine(inputs.Email());
             Console.WriteLine(inputs.PhoneNo());
+            Console.WriteLine(inputs.Password());
         }
     }
 }

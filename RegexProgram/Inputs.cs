@@ -39,5 +39,13 @@ namespace RegexProgram
             Regex reg = new Regex(numpattern);
             return reg.Match(PhoneNo);
         }
+        public dynamic Password()
+        {
+            Console.Write("Enter the Password : ");
+            string password = Console.ReadLine();
+            string passpattern = @"^[0-9a-zA-Z]{8,}$";
+            Regex reg = new Regex(passpattern);
+            return reg.Match(password);
+        }
     }
 }
