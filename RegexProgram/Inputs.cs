@@ -27,7 +27,7 @@ namespace RegexProgram
         {
             Console.Write("Enter the Email : ");
             string email = Console.ReadLine();
-            string emailpattern = @"^[a-z0-9]+[@]+[a-z]+[.][a-z]{2,3}";
+            string emailpattern = @"^[a-z0-9]+[.]{0,1}[a-z0-9]+[@]+[a-z]+[.][a-z]{2,3}([.][a-z]{2,3}){0,2}";
             Regex emailid = new Regex(emailpattern);
             return emailid.Match(email);
         }
