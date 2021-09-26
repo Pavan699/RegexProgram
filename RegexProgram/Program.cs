@@ -9,7 +9,8 @@ namespace RegexProgram
         {
             Console.WriteLine("Welcome To Regex Program");
             Inputs inputs = new Inputs();
-            Console.WriteLine(inputs.FirstName());          
+            Console.WriteLine(inputs.FirstName());
+            Console.WriteLine(inputs.LastName());
         }
     }
 }
