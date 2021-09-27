@@ -4,10 +4,16 @@ using System.Text.RegularExpressions;
 
 namespace RegexTestCases
 {
+    /// <summary>
+    /// UnitTest1 class to check regex program  
+    /// </summary>
     [TestClass]
     public class UnitTest1
     {
-        Inputs input = new Inputs();//Arrenge
+        Inputs input = new Inputs();//Arrenge or Object for the Inputs Calss
+        /// <summary>
+        /// TestFirstName() to check the First-Name is valid or not
+        /// </summary>
         [TestMethod]
         public void TestFirstName()
         {
@@ -18,6 +24,9 @@ namespace RegexTestCases
 
             Assert.AreEqual(true, res);//Assert
         }
+        /// <summary>
+        /// TestLastName() to check the Last-Name is valid or not
+        /// </summary>
         [TestMethod]
         public void TestLastName()
         {
@@ -29,7 +38,7 @@ namespace RegexTestCases
             Assert.AreEqual(true, res);//Assert
         }
         /// <summary>
-        /// 
+        /// TestEmail() to check the all types of emails are valid or not
         /// </summary>
         [TestMethod]
         public void TestEmail()
@@ -41,6 +50,9 @@ namespace RegexTestCases
 
             Assert.AreEqual(true, res);//Assert
         }
+        /// <summary>
+        /// TestPhoneNo() to check the Phone No. with country Code
+        /// </summary>
         [TestMethod]
         public void TestPhoneNo()
         {
@@ -51,6 +63,9 @@ namespace RegexTestCases
 
             Assert.AreEqual(true, res);//Assert
         }
+        /// <summary>
+        /// TestPassword() to check password with One Upper-cse character,one number and one special symbol and minimum 8 digits
+        /// </summary>
         [TestMethod]
         public void TestPassword()
         {          
