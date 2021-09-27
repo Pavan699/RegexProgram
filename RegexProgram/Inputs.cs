@@ -8,73 +8,73 @@ namespace RegexProgram
     /// <summary>
     /// Inputs class to declaer methods
     /// </summary>
-    class Inputs
+    public class Inputs
     {
         /// <summary>
         /// FirstName() method to check the name is valid or not
         /// </summary>
         /// <returns>if valid returns the name else returns blank</returns>
-        public dynamic FirstName()
+        public bool FirstName()
         {
             Console.Write("Enter the Frist-Name : ");
             string firstName = Console.ReadLine();
-            string namepattern = @"^[A-Z]{1}[a-z]{3,}";
+            string namepattern = @"^[A-Z]{1}[a-z]{3,}";// p = @"^[A-Z]{1}[a-zA-Z]{3,}";
             Regex fname = new Regex(namepattern);
-            return fname.Match(firstName);
+            return fname.IsMatch(firstName);
         }
         /// <summary>
         /// LastName() method to check the name is valid or not
         /// </summary>
         /// <returns>if valid returns the name else returns blank</returns>
-        public dynamic LastName()
+        public bool LastName()
         {
             Console.Write("Enter the Last-Name : ");
             string lastName = Console.ReadLine();
             string namepattern = @"^[A-Z]{1}[a-z]{3,}";
             Regex lname = new Regex(namepattern);
-            return lname.Match(lastName);
+            return lname.IsMatch(lastName);
         }
         /// <summary>
         /// Email() method to check all types of email is valid or not
         /// </summary>
         /// <returns>if valid returns the email else returns blank</returns>
-        public dynamic Email()
+        public bool Email()
         {
             Console.Write("Enter the Email : ");
             string email = Console.ReadLine();
             string emailpattern = @"^[a-z0-9]+[.]{0,1}[a-z0-9]+[@]+[a-z]+[.][a-z]{2,3}([.][a-z]{2,3}){0,2}";
             Regex emailid = new Regex(emailpattern);
-            return emailid.Match(email);
+            return emailid.IsMatch(email);
         }
         /// <summary>
         /// PhoneNo() method to check phone no. with country code
         /// </summary>
         /// <returns>'+' is optional but code,' '(Sapce) and number(10digit) then it will return or else none</returns>
-        public dynamic PhoneNo()
+        public bool PhoneNo()
         {
-            Console.Write("Enter the Phone No. : ");
+            Console.Write("Enter the Phone No. with Country Code : ");
             string PhoneNo = Console.ReadLine();
             string numpattern = @"^[+]{0,1}[0-9]{2}" + " " + "[6-9]{1}[0-9]{9}$";
             Regex reg = new Regex(numpattern);
-            return reg.Match(PhoneNo);
+            return reg.IsMatch(PhoneNo);
         }
         /// <summary>
         /// Password() method to check password with at least one Upper-character,one number and one Special symbol
         /// </summary>
         /// <returns>if all cases should match then it will return</returns>
-        public dynamic Password()
+        public bool Password()
         {
-            Console.Write("Enter the Password : ");
+            Console.Write("Enter the Password with One Upper-Case,One Number and One Special-Symbol : ");
             string password = Console.ReadLine();
-            string passpattern = @"^[0-9a-zA-Z]{8,}$";
+            string passpattern = @"^[0-9a-zA-Z!@#$%^&*()?]{8,}$";
             Regex reg = new Regex(passpattern);
             if (password.Length >= 8 && upperCase(password) >= 1 && numCase(password) >= 1 && SpecialCase(password) >= 1)
             {
-                Console.Write("Valid Password : ");
-                return reg.Match(password);
+                Console.Write("Valid Password  ");
+                return reg.IsMatch(password);
             }
             Console.WriteLine("Invalid Password");
-            return reg.Match(password);
+            return reg.IsMatch(password);
         }
         /// <summary>
         /// upperCase() method to check the Upper-Case-character
