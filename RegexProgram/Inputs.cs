@@ -20,7 +20,31 @@ namespace RegexProgram
             string firstName = Console.ReadLine();
             string namepattern = @"^[A-Z]{1}[a-z]{3,}";// p = @"^[A-Z]{1}[a-zA-Z]{3,}";
             Regex fname = new Regex(namepattern);
-            return fname.IsMatch(firstName);
+            try
+            {
+                if (firstName.Equals(string.Empty))
+                {
+                    throw new CustomExcp(CustomExcp.ExcpRegex.Empty_String, "Entered Empty String");
+                }
+                if (fname.IsMatch(firstName) == true)
+                {
+                    Console.WriteLine("Name is Valid {0}", firstName);
+                    return true;
+                }
+                else
+                {
+                    throw new CustomExcp(CustomExcp.ExcpRegex.Invalid_Name, "Entered Name is Invalid");                  
+                }
+            }
+            catch (NullReferenceException)
+            {
+                throw new CustomExcp(CustomExcp.ExcpRegex.Null_String, "You Entered Null Value ");
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex.Message);
+                return fname.IsMatch(firstName);
+            }
         }
         /// <summary>
         /// LastName() method to check the name is valid or not
@@ -32,7 +56,31 @@ namespace RegexProgram
             string lastName = Console.ReadLine();
             string namepattern = @"^[A-Z]{1}[a-z]{3,}";
             Regex lname = new Regex(namepattern);
-            return lname.IsMatch(lastName);
+            try
+            {
+                if (lastName.Equals(string.Empty))
+                {
+                    throw new CustomExcp(CustomExcp.ExcpRegex.Empty_String, "Entered Empty String");
+                }
+                if (lname.IsMatch(lastName) == true)
+                {
+                    Console.WriteLine("Name is Valid {0}", lastName);
+                    return true;
+                }
+                else
+                {
+                    throw new CustomExcp(CustomExcp.ExcpRegex.Invalid_Name, "Entered Name is Invalid");
+                }
+            }
+            catch (NullReferenceException)
+            {
+                throw new CustomExcp(CustomExcp.ExcpRegex.Null_String, "You Entered Null Value ");
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex.Message);
+                return lname.IsMatch(lastName);
+            }
         }
         /// <summary>
         /// Email() method to check all types of email is valid or not
@@ -42,9 +90,33 @@ namespace RegexProgram
         {
             Console.Write("Enter the Email : ");
             string email = Console.ReadLine();
-            string emailpattern = @"^[a-z0-9]+[.]{0,1}[a-z0-9]+[@]+[a-z]+[.][a-z]{2,3}([.][a-z]{2,3}){0,2}";
+            string emailpattern = @"^[a-z]{1}[a-z0-9]+[.]{0,1}[a-z0-9]+[@]+[a-z]+[.][a-z]{2,3}([.][a-z]{2,3}){0,2}";
             Regex emailid = new Regex(emailpattern);
-            return emailid.IsMatch(email);
+            try
+            {
+                if (email.Equals(string.Empty))
+                {
+                    throw new CustomExcp(CustomExcp.ExcpRegex.Empty_String, "Entered Empty String");
+                }
+                if (emailid.IsMatch(email) == true)
+                {
+                    Console.WriteLine("Email is Valid ", email);
+                    return true;
+                }
+                else
+                {
+                    throw new CustomExcp(CustomExcp.ExcpRegex.Invalid_Name, "Entered Email is Invalid");
+                }
+            }
+            catch (NullReferenceException)
+            {
+                throw new CustomExcp(CustomExcp.ExcpRegex.Null_String, "You Entered Null Value ");
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex.Message);
+                return emailid.IsMatch(email);
+            }
         }
         /// <summary>
         /// PhoneNo() method to check phone no. with country code
@@ -56,7 +128,31 @@ namespace RegexProgram
             string PhoneNo = Console.ReadLine();
             string numpattern = @"^[+]{0,1}[0-9]{2}" + " " + "[6-9]{1}[0-9]{9}$";
             Regex reg = new Regex(numpattern);
-            return reg.IsMatch(PhoneNo);
+            try
+            {
+                if (PhoneNo.Equals(string.Empty))
+                {
+                    throw new CustomExcp(CustomExcp.ExcpRegex.Empty_String, "Entered Empty Phone No.");
+                }
+                if (reg.IsMatch(PhoneNo) == true)
+                {
+                    Console.WriteLine("Phone No. is Valid", PhoneNo);
+                    return true;
+                }
+                else
+                {
+                    throw new CustomExcp(CustomExcp.ExcpRegex.Invalid_Name, "Entered Phone No. is Invalid");
+                }
+            }
+            catch (NullReferenceException)
+            {
+                throw new CustomExcp(CustomExcp.ExcpRegex.Null_String, "You Entered Null Value ");
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex.Message);
+                return reg.IsMatch(PhoneNo);
+            }
         }
         /// <summary>
         /// Password() method to check password with at least one Upper-character,one number and one Special symbol
@@ -68,13 +164,32 @@ namespace RegexProgram
             string password = Console.ReadLine();
             string passpattern = @"^[0-9a-zA-Z!@#$%^&*()?]{8,}$";
             Regex reg = new Regex(passpattern);
-            if (password.Length >= 8 && upperCase(password) >= 1 && numCase(password) >= 1 && SpecialCase(password) >= 1)
+
+            try
             {
-                Console.Write("Valid Password  ");
-                return reg.IsMatch(password);
+                if (password.Equals(string.Empty))
+                {
+                    throw new CustomExcp(CustomExcp.ExcpRegex.Empty_String, "Entered Empty Password");
+                }
+                if (password.Length >= 8 && upperCase(password) >= 1 && numCase(password) >= 1 && SpecialCase(password) >= 1)
+                {
+                    Console.WriteLine("Entered Password is Valid ", password);
+                    return true;
+                }
+                else
+                {
+                    throw new CustomExcp(CustomExcp.ExcpRegex.Invalid_Name, "Entered Password is Invalid");
+                }
             }
-            Console.WriteLine("Invalid Password");
-            return reg.IsMatch(password);
+            catch (NullReferenceException)
+            {
+                throw new CustomExcp(CustomExcp.ExcpRegex.Null_String, "You Entered Null Value ");
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex.Message);
+                return reg.IsMatch(password);
+            }       
         }
         /// <summary>
         /// upperCase() method to check the Upper-Case-character
