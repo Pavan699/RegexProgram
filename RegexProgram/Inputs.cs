@@ -10,6 +10,22 @@ namespace RegexProgram
     /// </summary>
     public class Inputs
     {
+        //Patterns for the Validations
+        public const string namepattern = @"^[A-Z]{1}[a-z]{3,}";
+        public const string emailpattern = @"^[a-z]{1}[a-z0-9]+[.]{0,1}[a-z0-9]+[@]+[a-z]+[.][a-z]{2,3}([.][a-z]{2,3}){0,2}";
+        public const string numpattern = @"^[+]{0,1}[0-9]{2}" + " " + "[6-9]{1}[0-9]{9}$";
+        public const string passpattern = @"(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+]).{8,}$";
+
+        /// <summary>
+        /// Delegate Fuctions to use the Lambda Expession
+        /// </summary>
+        public Func<string, string, bool> FirstNameValid = (firstName, namepattern) => Regex.IsMatch(firstName, namepattern);
+        public Func<string, string, bool> LastNameValid = (lastName, namepattern) => Regex.IsMatch(lastName, namepattern);
+        public Func<string, string, bool> EmailValid = (email, emailpattern) => Regex.IsMatch(email, emailpattern);
+        public Func<string, string, bool> PhoneNoValid = (phoneno, numpattern) => Regex.IsMatch(phoneno, numpattern);
+        public Func<string, string, bool> PasswordValid = (password, passpattern) => Regex.IsMatch(password, passpattern);
+             
+       /* 
         /// <summary>
         /// FirstName() method to check the name is valid or not
         /// </summary>
@@ -18,7 +34,7 @@ namespace RegexProgram
         {
             Console.Write("Enter the Frist-Name : ");
             string firstName = Console.ReadLine();
-            string namepattern = @"^[A-Z]{1}[a-z]{3,}";// p = @"^[A-Z]{1}[a-zA-Z]{3,}";
+            string namepattern = @"^[A-Z]{1}[a-z]{3,}";
             Regex fname = new Regex(namepattern);
             try
             {
@@ -33,7 +49,7 @@ namespace RegexProgram
                 }
                 else
                 {
-                    throw new CustomExcp(CustomExcp.ExcpRegex.Invalid_Name, "Entered Name is Invalid");                  
+                    throw new CustomExcp(CustomExcp.ExcpRegex.Invalid_Name, "Entered Name is Invalid");
                 }
             }
             catch (NullReferenceException)
@@ -162,6 +178,7 @@ namespace RegexProgram
         {
             Console.Write("Enter the Password with One Upper-Case,One Number and One Special-Symbol : ");
             string password = Console.ReadLine();
+
             string passpattern = @"^[0-9a-zA-Z!@#$%^&*()?]{8,}$";
             Regex reg = new Regex(passpattern);
 
@@ -189,7 +206,7 @@ namespace RegexProgram
             {
                 Console.WriteLine(Ex.Message);
                 return reg.IsMatch(password);
-            }       
+            }
         }
         /// <summary>
         /// upperCase() method to check the Upper-Case-character
@@ -241,6 +258,6 @@ namespace RegexProgram
                 }
             }
             return num;
-        }
+        }*/
     }
 }

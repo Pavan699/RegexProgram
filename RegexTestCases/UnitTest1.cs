@@ -91,9 +91,9 @@ namespace RegexTestCases
         {
             try
             {
-                string password = "Pavan@699"; //act
+                string password = "Pavan@699"; //Arrange
                 string passpattern = @"^[0-9a-zA-Z!@#$%^&*()?]{8,}$";
-                Regex reg = new Regex(passpattern);
+                Regex reg = new Regex(passpattern);//act
                 bool res = reg.IsMatch(password);
             }
             catch (CustomExcp Ce)
