@@ -52,6 +52,7 @@ namespace RegexProgram
                 }
             }
             Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+            Reflections.ReflectionsTests();
         }
     }
 }
